@@ -1,0 +1,476 @@
+/* Importing Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-blue: #3b82f6;
+    --light-blue: #dbeafe;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --bg-gray: #f3f4f6;
+    --border-color: #e5e7eb;
+    --important-red: #dc2626;
+    --important-bg: #fee2e2;
+    --average-bg: #fef3c7;
+    --average-text: #d97706;
+}
+
+/* Base Body and Container Layout */
+body {
+    background-color: var(--bg-gray);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 280px;
+    background-color: white;
+    padding: 1.5rem;
+    position: fixed;
+    height: 100vh;
+    border-right: 1px solid var(--border-color);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    color: var(--primary-blue);
+    padding-left: 0.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.875rem 1rem;
+    border-radius: 0.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-item.active {
+    background-color: var(--light-blue);
+    color: var(--primary-blue);
+}
+/* Tag Button Styles */
+.tag-button {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;            /* Padding to make it look like a button */
+    font-size: 0.75rem;                  /* Small font size for tag buttons */
+    font-weight: 500;
+    border-radius: 9999px;               /* Full rounded corners */
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Specific Styles for Each Tag Button */
+.tag-button.college {
+    background-color: #e0f2fe;           /* Light blue background for College */
+    color: #0ea5e9;                      /* Blue text color */
+}
+
+.tag-button.important {
+    background-color: var(--important-bg);
+    color: var(--important-red);
+}
+
+.tag-button.home {
+    background-color: #fef9c3;           /* Light yellow background for Home */
+    color: #f59e0b;                      /* Orange text color */
+}
+.tag-button.work {
+    background-color: #ede9fe; /* Light purple background */
+    color: #7c3aed;            /* Deep purple text color */
+}
+
+.tag-button.average {
+    background-color: var(--average-bg);
+    color: var(--average-text);
+}
+
+/* Hover Effects */
+.tag-button:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+/* Main Content Area */
+.main-content {
+    margin-left: 280px;
+    padding: 2rem 2.5rem;
+    width: calc(100% - 280px);
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.greeting h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.greeting p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    width: 320px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    font-size: 0.938rem;
+    background-color: white;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+/* Date Display */
+.date-display {
+    margin-bottom: 2.5rem;
+}
+
+.date-display .day {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.date-display .full-date {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Filter Section */
+/* Filter Section */
+.filter-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap; /* Allows filters to wrap if screen is too narrow */
+    justify-content: flex-start; /* Aligns filters to the left */
+}
+
+.filter-btn {
+    padding: 0.75rem 1.25rem;
+    background-color: white;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-flex; /* Use inline-flex to keep buttons on the same line */
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+
+.filter-btn.active {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.filter-count {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* Task Column Layout */
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    padding: 0.5rem;
+}
+
+/* Task Cards */
+/* Task Cards - Smaller, more compact design */
+.task-card {
+    background-color: white;
+    border-radius: 0.75rem;         /* Slightly smaller rounding */
+    padding: 1rem;                  /* Reduced padding */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;                    /* Reduced gap between elements */
+    max-width: 300px;               /* Limit max width to make cards narrower */
+}
+
+.task-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-category {
+    color: var(--text-secondary);
+    font-size: 0.75rem;             /* Slightly smaller font size */
+    font-weight: 500;
+}
+
+.task-priority {
+    padding: 0.15rem 0.5rem;        /* Reduced padding */
+    border-radius: 9999px;
+    font-size: 0.65rem;             /* Smaller font size */
+    font-weight: 500;
+}
+
+.task-title {
+    font-size: 1rem;                /* Reduced title font size */
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.task-description {
+    color: var(--text-secondary);
+    font-size: 0.75rem;             /* Smaller description font size */
+    line-height: 1.4;
+}
+
+/* Task Grid Layout - Adjusted for narrower cards */
+.task-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;                      /* Reduced gap between cards */
+    padding: 0.5rem;
+}
+
+
+/* Add Task Button */
+.add-task-btn {
+    background-color: white;
+    border: 2px dashed var(--border-color);
+    border-radius: 0; /* Remove rounded corners for a rectangular shape */
+    min-height: 35px;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-task-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+/* ... (keep all your existing CSS above) ... */
+
+/* Replace your existing task-grid styles with these new styles */
+.task-grid {
+    display: flex;           /* Changed from grid to flex */
+    gap: 1.5rem;
+    padding: 0.5rem;
+    flex-wrap: wrap;         /* Allow wrapping on smaller screens */
+}
+
+/* Add new styles for task columns */
+.task-column {
+    flex: 1;                /* Each column takes equal space */
+    min-width: 300px;       /* Minimum width before wrapping */
+    max-width: 400px;       /* Maximum width to maintain readability */
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.task-column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.task-column-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.task-count {
+    background-color: var(--bg-gray);
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* Adjust task card styles */
+.task-card {
+    margin-bottom: 1rem;    /* Add space between cards in the same column */
+    max-width: 100%;        /* Allow cards to fill column width */
+}
+/* Basic styles for task container */
+.task-container {
+    padding: 1rem;
+}
+
+/* Task Column Layout */
+.task-grid {
+    display: flex;           /* Changed to flex for better layout */
+    gap: 1.5rem;
+    flex-wrap: wrap;        /* Allow wrapping on smaller screens */
+}
+
+/* Task Column */
+.task-column {
+    flex: 1;
+    min-width: 300px;      /* Minimum width before wrapping */
+    max-width: 400px;      /* Maximum width to maintain readability */
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Task Column Header */
+.task-column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Task Column Title */
+.task-column-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Task Count Display */
+.task-count {
+    background-color: var(--bg-gray);
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* Add Task Button */
+.add-task-btn {
+    background-color: white;
+    border: 2px dashed var(--border-color);
+    border-radius: 0; /* Remove rounded corners */
+    min-height: 35px;
+    min-width: 50px; /* Adjusted width for better fit */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-task-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+/* Task Cards */
+.task-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;    /* Space between cards */
+}
+
+/* Card Header */
+.task-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Task Title */
+.task-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Task Description */
+.task-description {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+/* Tag Button Styles */
+.tag-button {
+    padding: 0.15rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.65rem;
+    font-weight: 500;
+}
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .task-column {
+        min-width: 250px;   /* Slightly smaller on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .task-grid {
+        flex-direction: column; /* Stack columns on mobile */
+    }
+    
+    .task-column {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+

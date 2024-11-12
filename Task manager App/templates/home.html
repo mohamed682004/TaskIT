@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskIt - Task Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">TaskIt</div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">Dashboard</a>
+                <a href="#" class="nav-item">Calendar</a>
+                <a href="#" class="nav-item">Settings</a>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <header class="header">
+                <div class="greeting">
+                    <h1>Hello, User</h1>
+                    <p>Let's make the best of today!</p>
+                </div>
+                <div class="search-container">
+                    <i class="search-icon">🔍</i>
+                    <input type="text" class="search-input" placeholder="Search">
+                </div>
+            </header>
+
+            <div class="date-display">
+                <div class="day">26</div>
+                <div class="full-date">Tuesday, November, 2024</div>
+            </div>
+
+            <!-- Modified task grid structure -->
+            <div class="task-container">
+                <div class="task-grid">
+                    <!-- Today Column -->
+                    <div class="task-column">
+                        <div class="task-column-header">
+                            <div class="task-column-title">
+                                Today <span class="task-count">05</span>
+                            </div>
+                            <button class="add-task-btn">+</button>
+                        </div>
+                        <div class="task-card">
+                            <div class="task-card-header">
+                                <span class="tag-button college">College</span>
+                                <span class="tag-button important">Important</span>
+                            </div>
+                            <div class="task-title">Software Engineering Assignment</div>
+                            <div class="task-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</div>
+                        </div>
+                    </div>
+            
+                    <!-- Tomorrow Column -->
+                    <div class="task-column">
+                        <div class="task-column-header">
+                            <div class="task-column-title">
+                                Tomorrow <span class="task-count">09</span>
+                            </div>
+                            <button class="add-task-btn">+</button>
+                        </div>
+                        <div class="task-card">
+                            <div class="task-card-header">
+                                <span class="tag-button home">Home</span>
+                                <span class="tag-button average">Average</span>
+                            </div>
+                            <div class="task-title">Grocery Store</div>
+                            <div class="task-description">Lorem ipsum dolor sit amet...</div>
+                        </div>
+                    </div>
+            
+                    <!-- Over-due Column -->
+                    <div class="task-column">
+                        <div class="task-column-header">
+                            <div class="task-column-title">
+                                Over-due <span class="task-count">02</span>
+                            </div>
+                            <button class="add-task-btn">+</button>
+                        </div>
+                        <div class="task-card">
+                            <div class="task-card-header">
+                                <span class="tag-button work">Work</span>
+                                <span class="tag-button important">Important</span>
+                            </div>
+                            <div class="task-title">Grocery Store</div>
+                            <div class="task-description">Lorem ipsum dolor sit amet...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
